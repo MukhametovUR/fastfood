@@ -13,11 +13,10 @@ class Hamburger {
     }  
 
     addTopping(topping) {    // Добавить добавку          
-
-
+        this.topping = topping.push(el);
     }
     removeTopping(topping) { // Убрать добавку 
-
+        this.topping = topping.splice(el,1);
    }
     getToppings(topping) {   // Получить список добавок 
         let result = [];
@@ -27,7 +26,7 @@ class Hamburger {
         })
    }
     getSize(size) {              // Узнать размер гамбургера 
-        
+
    }
     getStuffing() {          // Узнать начинку гамбургера 
    
