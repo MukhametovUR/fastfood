@@ -1,57 +1,44 @@
   class Topping{
-    constructor(toppingName, price, calories){
-       this.toppingName = toppingName;
-       this.price = price;
-       this.calories = calories;
-    //    this.show();
+    constructor(topping,price,calories){
+      this.topping = topping;
+      this.price = price;
+      this.calories = calories;
     }
-
-    // show(){
-    //     console.log(`${this.toppingName} ${this.price} ${this.calories}`);
-    // }
 }
-
 class Hamburger {    
-    constructor(size, stuffing, topping) { 
-        this.size = size;
-        this.stuffing = stuffing;
-        this.topping = topping;
-        this.addTopping();
-        // this.removeTopping();
+    constructor(size, add,  Topping) { 
+        this.size = new Topping(this.getSize(size));
+        this.add = new Topping(this.addTopping(add));
+        this.Topping = new Topping(this.getToppings(topping));
     }  
 
     addTopping(topping) {    // Добавить добавку          
-        topping = new Topping(this.toppingName);
-        console.log(this.topping);
+
 
     }
     removeTopping(topping) { // Убрать добавку 
-        topping = '';
+
    }
     getToppings(topping) {   // Получить список добавок 
-
-
+        let result = [];
+        this.selectAll(topping).forEach(item => {
+            let obj = new Topping(item);
+            result.push(obj);
+        })
    }
     getSize(size) {              // Узнать размер гамбургера 
-       console.log(`${this.size}`); 
+        
    }
     getStuffing() {          // Узнать начинку гамбургера 
    
    }
     calculatePrice() {       // Узнать цену 
-   
+        this.price = this._sumPrice();
+        this.calories = this.calculateCalories();
    }
     calculateCalories() {    // Узнать калорийность 
-       
+        let result = this.size.calories + this.add.calories;
+        this.toppings.forEach(item => result += item.calories);
+        return result;
    }
   }
-
-
-
-let h1 = new Topping("small", "20","100");
-let h2 = new Topping("low", "40","1");
-
-h1.show;
-
-let h3 = new Hamburger("big","30","20");
-// h3.addTopping();
